@@ -86,7 +86,7 @@ hrir_max = max(max(abs(hrirs)));
 
 for k=1:1:channel_count
   audiowrite(cstrcat(channels{k}, ".wav"), ...
-    hrir/hrir_max, meas.fs);
+    hrirs(k,:)/hrir_max, meas.fs);
 end
 
 % Assemble it (octave fails channel mapping so use ffmpeg)
